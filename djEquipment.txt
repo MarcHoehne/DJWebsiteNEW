@@ -1,0 +1,17 @@
+DJ Equipment Setup
+Hauptrak
+Das Hauptrak ist in einem (Mischercase Flightcase L-Rack Combirack Combicase 8/10 HE) Flightcase mit Rollen. Es hat eine extra Mischpulthalterung wo ein Sony MXP-290 8ch mixer mischpult drinnen ist. Darüber ist dann noch platzt, welcher mit einem CD Player (American Audio UCD200) Controleinheit gefüllt ist. Im Rak selber ist dann vom CD Player die Einheit wo die CD reinkommen. Dann haben wir auf einer weiteren Einheit von Sennheiser einen  stationären Empfänger, welcher das EW-100 G4 ist. Desweitern ist in dem Rak ein zweiter zusätzlicherersatzt DJ CD Player eingebaut. So ähnlich wie der (CDN55 Rack Mount Professional Dual CD Player). Des weiteren haben wir dort eine 5er Einheit mit an aus Schaltern, welche dafür da sind das licht zu steuern. Es ist auch ein Verstärker Dynacord A 1001 eingebaut für die Dynacord und Bose Lautsprecher, wenn diese anstelle der Polar 10 bespielt werden.
+
+
+Licht
+Wir haben für das Licht einen Hazer um das Licht besser aussehen zu lassen. Es ist der Beamz F1600 Pro Faze Maschine. Wir haben auch 2 105W Moving Head RGBW Lichteffekt 7 LED. Dazu haben wir eine Dekotraverse. An dieser traverse sind 4 Wiwreenm RGBW 140W 14LED Par Bühnenlichter. Dazu haben wir einen Showtec Dynamic LED 256LEDs, 17W, 20W Verbrauch an der rechten Seite der traverse Seitlich hängen. Oben rechts an der traverse ist ein Eurolite LED Light Liner befestigt. Daneben ist ein weiteres Stativ. Dort sind 4 kleine (8 Gobos Strahl Moving Heads 120W) befestigt und oben in der Mitte am Stativ eine Eurolite LED Bar-6 QCL RGBA. Die Movingheads werden mit einem Mikrocontroler gesteuert.
+
+Daneben ist ein weiteres Stativ mit einem Eurolite LED KLS Laser Bar Pro FX-Lichtset. Dazu extra 4 scheinwerfer mit aku welche man im raum verteilen kann und etwas besser als die EUROLITE AKKU TL-3 QCL RGB+UV Trusslight sind für Ambientebeleuchtung. Dazu sind noch 4 Led Par scheinwerfer da welche man auch im Raum verteilen kann um wände anzuleuchten. Die sind älter aber sehen so aus wie die BETOPPER LED Par Scheinwerfer RGB Bühnenlicht 180W, Discolicht Partylicht DMX512 mit Stroboskop, 54 X 3W LED Strahler und sind auch dimmbar und mit dmx. Habe auch noch 4 RGB 140W 14LED Par Scheinwerfer die eitwas billiger sind. Haben zusammen so 90 euro gekostet. Diese 4 Scheinwerfer sind an einem Lichtstativ und werden per Mikrocotroller extra über mein eigenes Sound to light programm gesteuert automatisch. Mein ganzes Setup ist mit einem an/aus schalter für alle lichtarten am rag anschalt und ausmachbar! So ist es auch viel leichter
+
+Sound
+Wir haben 2x HK Audio Polar 10 welche unsere Hauptlautsprecher sind. Dazu haben wir noch 4x Dynacord DT 63 Lautsprecher zum hinstellen. Es gibt außerdem 4x 802 Bose Lautsprecher, falls man noch mehr beschallen muss. Diese Lautsprecher sind für die ersatzanlage oder für Draußenveranstaltungen. Der Verstärker dafür ist der Bose 1800 Series Three III.
+Ein 835-S Mikro für die EW-100 G4 von Sennheiser. Ein E 945 Mikro und ein E 935 Mikro von Sennheiser mit analoger Kabelverbindung. Dazu noch das beyerdynamic TG 100 Handheld Drahtlosmikrofon Set als weitere Digitalmikrofon Alternative. Diese letzteren 3 Mikros haben alle ein MZW-1 Popschutz. Natürlich habe ich auch noch 3x Mirkorfonstative dafür. Dann 2x Kabelbrücken auch noch. 
+
+Ersatztrack 
+Zusätzlich ein Ersatztrack welches auch in so einem Flightcase in kleiner ist mit Verstärker, Mischpult, Lichtsteuerung über an aus Schalter, billigeres 10 Kanal Mikro und CD-Player für Djs. Es ist falls das Hauptrack Probleme hat. 
+

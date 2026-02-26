@@ -1,0 +1,18 @@
+# Robots.txt für MH Event & DJ Technik
+# Erlaubt Suchmaschinen alle Seiten zu indexieren
+
+User-agent: *
+Allow: /
+
+# Blockiere nur technische/unwichtige Dateien
+Disallow: /code.txt
+Disallow: /djEquipment.txt
+Disallow: /infoWerSindWir.txt
+Disallow: /Beschreibung.docx
+Disallow: /light_control.html
+
+# Sitemap Location (wenn du eine hast)
+# Sitemap: https://www.mh-event-technik.de/sitemap.xml
+
+# Crawl-Delay für freundliches Crawling
+Crawl-delay: 1

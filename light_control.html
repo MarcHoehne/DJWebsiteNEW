@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Light Control</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --accent: #00d4ff;
+            --accent-glow: #00d4ff20;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --success: #00ff88;
+            --warning: #ffaa00;
+            --danger: #ff4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .header {
+            text-align: center; margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        .header h1 { font-size: 2.5rem; background: linear-gradient(45deg, var(--accent), #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .modes {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 30px;
+        }
+        .mode-btn {
+            padding: 15px; border-radius: 20px; background: var(--card-bg); border: 2px solid transparent;
+            font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+        .mode-btn.active, .mode-btn:hover { border-color: var(--accent); background: var(--accent-glow); box-shadow: 0 0 30px var(--accent-glow); }
+        .section {
+            background: var(--card-bg); border-radius: 25px; padding: 25px; margin-bottom: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);
+        }
+        .section h2 { font-size: 1.8rem; margin-bottom: 20px; color: var(--accent); display: flex; align-items: center; gap: 10px; }
+        .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .control-item {
+            background: rgba(255,255,255,0.05); border-radius: 15px; padding: 20px; text-align: center;
+        }
+        .control-item h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--text-secondary); }
+        .toggle { width: 60px; height: 30px; background: #333; border-radius: 30px; position: relative; cursor: pointer; transition: 0.3s; margin: 0 auto 10px; }
+        .toggle.active { background: var(--success); }
+        .toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; background: white; border-radius: 50%; transition: 0.3s; }
+        .toggle.active::after { transform: translateX(30px); }
+        input[type="range"] {
+            width: 100%; height: 8px; background: var(--accent-glow); border-radius: 10px; outline: none; -webkit-appearance: none;
+        }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 25px; height: 25px; background: var(--accent); border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px var(--accent-glow); }
+        input[type="range"]::-moz-range-thumb { width: 25px; height: 25px; background: var(--accent); border-radius: 50%; cursor: pointer; }
+        .value { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+        .status { padding: 10px; border-radius: 10px; margin-top: 10px; font-weight: 500; }
+        .status.on { background: rgba(0,255,136,0.2); color: var(--success); }
+        .status.off { background: rgba(255,68,68,0.2); color: var(--danger); }
+        @media (max-width: 768px) { .controls { grid-template-columns: 1fr; } .header h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎉 Party Light Control</h1>
+        <p>Steuere Nebel, Moving Heads & LEDs</p>
+    </div>
+
+    <div class="modes">
+        <button class="mode-btn active" data-mode="party">Party</button>
+        <button class="mode-btn" data-mode="club">Club</button>
+        <button class="mode-btn" data-mode="ambient">Ambient</button>
+        <button class="mode-btn" data-mode="custom">Custom</button>
+    </div>
+
+    <!-- Hazer / Nebelmaschine -->
+    <div class="section">
+        <h2>🌫️ Hazer</h2>
+        <div class="controls">
+            <div class="control-item">
+                <h3>Power</h3>
+                <div class="toggle" data-target="hazerPower"></div>
+                <div class="status off" id="hazerStatus">Aus</div>
+            </div>
+            <div class="control-item">
+                <h3>Intensität</h3>
+                <input type="range" min="0" max="100" value="50" id="hazerIntensity">
+                <div class="value" id="hazerValue">50%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Moving Heads -->
+    <div class="section">
+        <h2>🎭 Moving Heads (4x)</h2>
+        <div class="controls">
+            <div class="control-item">
+                <h3>Power</h3>
+                <div class="toggle active" data-target="mhPower"></div>
+                <div class="status on" id="mhStatus">An</div>
+            </div>
+            <div class="control-item">
+                <h3>Pattern</h3>
+                <select style="width:100%; padding:10px; border-radius:10px; background:var(--bg-secondary); color:var(--text-primary); border:1px solid var(--accent-glow);">
+                    <option>X-Pattern</option>
+                    <option>Wave</option>
+                    <option>Bar</option>
+                    <option>SideSpam</option>
+                </select>
+            </div>
+            <div class="control-item">
+                <h3>Geschwindigkeit</h3>
+                <input type="range" min="0" max="100" value="70" id="mhSpeed">
+                <div class="value" id="mhSpeedValue">70%</div>
+            </div>
+            <div class="control-item">
+                <h3>Farbe</h3>
+                <input type="color" value="#00d4ff" style="width:60px; height:60px; border-radius:50%; border:none; cursor:pointer;">
+            </div>
+        </div>
+    </div>
+
+    <!-- LEDs -->
+    <div class="section">
+        <h2>💡 Scheinwerfer (4+2)</h2>
+        <div class="controls">
+            <div class="control-item">
+                <h3>Master Dimmer</h3>
+                <input type="range" min="0" max="255" value="255" id="ledDimmer">
+                <div class="value" id="ledValue">100%</div>
+            </div>
+            <div class="control-item">
+                <h3>Sound Mode</h3>
+                <div class="toggle active" data-target="soundMode"></div>
+                <div class="status on" id="soundStatus">Sound-Reaktiv</div>
+            </div>
+            <div class="control-item">
+                <h3>Party Farbe</h3>
+                <input type="color" value="#ff00ff" style="width:60px; height:60px; border-radius:50%; border:none; cursor:pointer;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Demo-Interaktionen (ersetze durch WebSocket-Fetches zu ESP32)
+        document.querySelectorAll('.toggle').forEach(tog => {
+            tog.addEventListener('click', () => {
+                tog.classList.toggle('active');
+                const status = tog.parentElement.querySelector('.status');
+                status.textContent = tog.classList.contains('active') ? 'An' : 'Aus';
+                status.className = `status ${tog.classList.contains('active') ? 'on' : 'off'}`;
+                // fetch(`/control?${tog.dataset.target}=${tog.classList.contains('active') ? 'on' : 'off'}`);
+            });
+        });
+
+        document.querySelectorAll('input[type="range"]').forEach(slider => {
+            const valEl = slider.parentElement.querySelector('.value');
+            slider.addEventListener('input', () => {
+                valEl.textContent = Math.round(slider.value / 255 * 100) + '%';
+                // fetch(`/slider?id=${slider.id}&value=${slider.value}`);
+            });
+        });
+
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // Lade Preset: fetch(`/mode?${btn.dataset.mode}`);
+            });
+        });
+
+        // PWA-Install (optional)
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => { deferredPrompt = e; });
+    </script>
+</body>
+</html>
