@@ -1335,7 +1335,7 @@ section {
 }
 
 /* Responsive Design */
-@media (max-width: 993px) {
+@media (max-width: 1033px) {
     .logo-img-link {
         display: block; /* Auf Mobile normal darstellen */
         grid-column: 1;
@@ -1369,7 +1369,7 @@ section {
 }
 
 /* Media Query for Mobile Navigation */
-@media (max-width: 992px) {
+@media (max-width: 1033px) {
     .navbar .container{
         position: relative;
     }
